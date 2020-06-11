@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/blank', function () {
     return view('backend.layouts.app');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
