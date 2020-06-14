@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/blank', function () {
-    return view('backend.layouts.app');
+    return view('backend.blank');
 });
 
 Auth::routes();
