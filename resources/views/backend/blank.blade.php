@@ -1,6 +1,7 @@
 @extends('backend.layouts.app')
 
-@section('Blank')
+@section('title')
+    Blank
 
 @endsection
 
