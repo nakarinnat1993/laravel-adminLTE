@@ -16,8 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/blank', function () {
-    return view('backend.blank');
+Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
+    Route::get('/blank', function () {
+        return view('backend.blank');
+    });
 });
 
 Auth::routes();

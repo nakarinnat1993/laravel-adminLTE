@@ -61,8 +61,7 @@
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
                                 Nora Silvester
-                                <span class="float-right text-sm text-warning"><i
-                                        class="fas fa-star"></i></span>
+                                <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                             </h3>
                             <p class="text-sm">The subject goes here</p>
                             <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -101,10 +100,38 @@
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                <i class="fas fa-th-large"></i>
+        <li class="nav-item dropdown user user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="user-image img-circle elevation-2 alt=" User Image">
+                <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <!-- User image -->
+                <li class="user-header bg-primary">
+                    <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+
+                    <p>
+                        {{ Auth::user()->name }} - {{ Auth::user()->email }}
+                        <small>Member since {{ Auth::user()->created_at }}</small>
+                    </p>
+                </li>
+                <!-- Menu Body -->
+                <li class="user-body">
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        </div>
+                        <div class="col-6 text-center">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                                @csrf
+                                <button type="submit" class="btn btn-default btn-flat">Sign out</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </li>
+
+            </ul>
         </li>
     </ul>
 </nav>
